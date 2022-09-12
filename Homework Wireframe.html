@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wireframe</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/ffbeafe349.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="search">
+        <div class="row">
+          <form id="search-box">
+            <button
+              type="button"
+              id="location"
+              class="col-1 fa-solid fa-location-dot location-button"
+            ></button>
+            <input
+              type="text"
+              placeholder="Enter a city name"
+              class="col-8 search-city"
+              autocomplete="off"
+              autofocus="on"
+              id="searching"
+            />
+            <input
+              type="submit"
+              value="Search"
+              class="col-3 search-button shadow sm"
+            />
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="current-weather-container">
+      <div class="row">
+        <div class="col-7">
+          <div class="current-temperature">
+            <span class="my-temp"> </span>
+            <span class="temp-unit">
+              <a href="#" class="celcius current">℃</a>
+              <a href="#" class="fahrenheit noncurrent">| ℉</a>
+            </span>
+          </div>
+          <div class="my-city">
+            <h1 class="city"></h1>
+          </div>
+          <div class="day-time" id="date"></div>
+          <div class="weather-type">
+            <span class="weather-description"></span>
+          </div>
+        </div>
+        <div class="col-5">
+          <div class="weather-icon">
+            <span class="fa-solid fa-sun sun"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row-middle">
+      <div class="row">
+        <div class="col-3 wind">
+          <p class="weather-details">Wind</p>
+          <span class="fa-solid fa-wind pic"></span>
+          <p class="details-info"><span class="chance-of-wind"></span> km/h</p>
+        </div>
+        <div class="col-3 humidity">
+          <p class="weather-details">Humidity</p>
+          <span class="fa-solid fa-droplet pic"></span>
+          <p class="details-info"><span class="chance-of-humidity">7</span>%</p>
+        </div>
+        <div class="col-3 low">
+          <p class="weather-details">Low</p>
+          <span class="fa-solid fa-temperature-low pic"></span>
+          <p class="details-info"><span class="chance-of-low"></span>℃</p>
+        </div>
+        <div class="col-3 high">
+          <p class="weather-details">High</p>
+          <span class="fa-solid fa-temperature-high pic"></span>
+          <p class="details-info"><span class="chance-of-high"></span>℃</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="future-forecast">
+      <div id="future-forecast">
+        <div class="row">
+          <div class="col 2">
+            <div class="days">
+              Fri
+              <p class="small-icons">
+                <i class="fa-solid fa-sun sunsun ffpic"></i>
+              </p>
+            </div>
+            <div class="week-temp">
+              <span class="high-temp">27°</span>
+              <span class="low-temp">| 15℃</span>
+            </div>
+          </div>
+          <div class="col 2">
+            <div class="days">
+              Sat
+              <p class="small-icons"><i class="fa-solid fa-sun ffpic"></i></p>
+            </div>
+            <div class="week-temp">
+              <span class="high-temp">27°</span>
+              <span class="low-temp">| 15℃</span>
+            </div>
+          </div>
+          <div class="col 2">
+            <div class="days">
+              Sun
+              <p class="small-icons">
+                <i class="fa-solid fa-cloud-sun-rain ffpic"></i>
+              </p>
+            </div>
+            <div class="week-temp">
+              <span class="high-temp">17°</span>
+              <span class="low-temp">| 12℃</span>
+            </div>
+          </div>
+          <div class="col 2">
+            <div class="days">
+              Mon
+              <p class="small-icons">
+                <i class="fa-solid fa-cloud-sun ffpic"></i>
+              </p>
+            </div>
+            <div class="week-temp">
+              <span class="high-temp">21°</span>
+              <span class="low-temp">| 14℃</span>
+            </div>
+          </div>
+          <div class="col 2">
+            <div class="days">
+              Tue
+              <p class="small-icons"><i class="fa-solid fa-sun ffpic"></i></p>
+            </div>
+            <div class="week-temp">
+              <span class="high-temp">25°</span>
+              <span class="low-temp">| 15℃</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
