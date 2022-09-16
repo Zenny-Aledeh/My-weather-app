@@ -28,7 +28,6 @@ let day = days[now.getDay()];
 todaysDate.innerHTML = `${day}, ${hours}:${minutes}`;
 
 function weatherCurrent(response) {
-  console.log(response.data);
   document.querySelector(".city").innerHTML = response.data.name;
   document.querySelector(".my-temp").innerHTML = Math.round(
     response.data.main.temp
@@ -46,6 +45,12 @@ function weatherCurrent(response) {
   document.querySelector(".chance-of-low").innerHTML = Math.round(
     response.data.main.temp_min
   );
+  document
+    .querySelector(".icon")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
 }
 
 function searchSubmit(event) {
