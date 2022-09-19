@@ -86,7 +86,6 @@ a {
 }
 
 .noncurrent {
-  text-decoration: none;
   color: rgba(90, 68, 117, 0.6);
   font-weight: 600;
 }

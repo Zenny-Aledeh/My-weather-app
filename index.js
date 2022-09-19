@@ -51,6 +51,7 @@ function weatherCurrent(response) {
       "src",
       `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     );
+  celsiusTemperature = response.data.main.temp;
 }
 
 function searchSubmit(event) {
@@ -70,23 +71,30 @@ function search(city) {
   axios.get(apiUrl).then(weatherCurrent);
 }
 
-function swap(event) {
+function swapToFahrenheit(event) {
   event.preventDefault();
-  let Temperature = document.querySelector(".my-temp");
-  Temperature.innerHTML = Math.round((25 * 9) / 5 + 32);
+  let fahrenheitTemperature = Math.round((celsiusTemperature * 9) / 5 + 32);
+  celsiusUnit.classList.remove("active");
+  fahrenheitUnit.classList.add("active");
+  let temperatureElement = document.querySelector(".my-temp");
+  temperatureElement.innerHTML = fahrenheitTemperature;
 }
 
-let changeUnit = document.querySelector(".fahrenheit");
-changeUnit.addEventListener("click", swap);
-
-function changeBack(event) {
+function displayCelsius(event) {
   event.preventDefault();
-  let Temp = document.querySelector(".my-temp");
-  Temp.innerHTML = 25;
+  celsiusUnit.classList.add("active");
+  fahrenheitUnit.classList.remove("active");
+  let temperatureElement = document.querySelector(".my-temp");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
-let convert = document.querySelector(".celcius");
-convert.addEventListener("click", changeBack);
+let fahrenheitUnit = document.querySelector(".fahrenheit");
+fahrenheitUnit.addEventListener("click", swapToFahrenheit);
+
+let celsiusTemperature = null;
+
+let celsiusUnit = document.querySelector(".celsius");
+celsiusUnit.addEventListener("click", displayCelsius);
 
 function searchMyLocation(position) {
   let apiKey = "46fac47dd8b8fa26d1b6852218ad3dfe";
@@ -103,3 +111,5 @@ function getMyLocation(event) {
 
 let currentLocationButton = document.querySelector(".location-button");
 currentLocationButton.addEventListener("click", getMyLocation);
+
+search("london");
