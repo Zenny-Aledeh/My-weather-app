@@ -27,6 +27,25 @@ let day = days[now.getDay()];
 
 todaysDate.innerHTML = `${day}, ${hours}:${minutes}`;
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#future-forecast");
+
+  forecastElement.innerHTML = `
+  <div class="row">
+        <div class="col 2">
+          <div class="days">
+            Fri
+            <p class="small-icons">
+              <i class="fa-solid fa-sun sunsun ffpic"></i>
+            </p>
+          </div>
+          <div class="week-temp">
+            <span class="high-temp">27°</span>
+            <span class="low-temp">| 15℃</span>
+          </div>
+        </div>`;
+}
+
 function weatherCurrent(response) {
   document.querySelector(".city").innerHTML = response.data.name;
   document.querySelector(".my-temp").innerHTML = Math.round(
@@ -113,3 +132,4 @@ let currentLocationButton = document.querySelector(".location-button");
 currentLocationButton.addEventListener("click", getMyLocation);
 
 search("london");
+displayForecast();
