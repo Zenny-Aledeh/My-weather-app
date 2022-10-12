@@ -27,29 +27,34 @@ let day = days[now.getDay()];
 
 todaysDate.innerHTML = `${day}, ${hours}:${minutes}`;
 
-function displayForecast() {
-  let forecastElement = document.querySelector(".future");
-
-  let days = ["Thurs", "Fri", "Sat", "Sun", "Mon"];
+function displayFutureForecast() {
+  let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
+  let days = ["Thur", "Fri", "Sat", "Sun"];
   days.forEach(function (day) {
     forecastHTML =
       forecastHTML +
       `
-          <div class="col-2">
-          <div class="days">
-            ${day}</div>
-           <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="" width="42"/>
-            <div class="week-temp">
-            <span class="high-temp">27°</span>
-            <span class="low-temp">| 15℃</span>
-            </div>
-        </div>`;
+  
+    <div class="col-2">
+      <div class="future-forecast-date">
+        ${day}
+        <img
+          src="http://openweathermap.org/img/wn/01d@2x.png"
+          alt=""
+          width="40"
+        />
+        <div class="future-forecast-temperature">
+          <span class="future-forecast-temperature-high">20° </span>
+          <span class="future-forecast-temperature-low"> 12°</span>
+        </div>
+      </div>
+  </div>`;
   });
 
   forecastHTML = forecastHTML + `</div>`;
-  forecastElememt.innerHTML = forecastHTML;
+  forecastElement.innerHTML = forecastHTML;
 }
 
 function weatherCurrent(response) {
@@ -138,4 +143,4 @@ let currentLocationButton = document.querySelector(".location-button");
 currentLocationButton.addEventListener("click", getMyLocation);
 
 search("london");
-displayForecast();
+displayFutureForecast();
