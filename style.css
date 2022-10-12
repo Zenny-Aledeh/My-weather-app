@@ -119,6 +119,7 @@ a {
   text-align: center;
   margin-left: 8px;
   color: #fff;
+  font-weight: 900;
 }
 
 .my-city {
@@ -154,13 +155,6 @@ a {
 
 .weather-icon {
   text-align: center;
-}
-
-.sun {
-  margin: auto;
-  max-width: 190px;
-  font-size: 100px;
-  color: yellow;
 }
 
 .row-middle {
@@ -227,11 +221,11 @@ a {
 
 .future-forecast-date {
   font-size: 16px;
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 .future-forecast-temperature-low {
-  opacity: 0.6;
+  opacity: 0.7;
 }
 
 .future-forecast-temperature {
